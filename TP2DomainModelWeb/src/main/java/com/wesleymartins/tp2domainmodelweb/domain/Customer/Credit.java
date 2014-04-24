@@ -7,7 +7,6 @@
 package com.wesleymartins.tp2domainmodelweb.domain.Customer;
 
 import java.io.Serializable;
-import java.util.Locale.Builder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,22 +14,38 @@ import javax.persistence.Id;
 
 /**
  *
- * @author 212022261
+ * @author Wesley
  */
 @Entity
-public class Customer implements Serializable {
+public class Credit implements Serializable, Payment {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    private String fName;
+ private double itemPrice;
+    private String type;
 
-    public Customer() {
+    public double calcAmount() {
+        
+        return itemPrice;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public double getItemPrice() {
+        return itemPrice;
+    }
+
+    public String getType() {
+        return type;
     }
     
+    private Credit(){}
     
         
- private Customer(Builder builder){
+ private Credit(Builder builder){
      id = builder.id;
      
  }
@@ -39,7 +54,7 @@ public class Customer implements Serializable {
         public static class Builder
         {
             private String id;
-            private String fName;
+            private String type;
             
             public Builder(String id)
             {
@@ -48,31 +63,17 @@ public class Customer implements Serializable {
                         
         
         
-        public Builder fName(String value)
+        public Builder type(String value)
         {
-            fName = value;
+            type = value;
             return this;
         }
         
-        public Customer build()
+        public Credit build()
         {
-        return new Customer(this);
+        return new Credit(this);
         }
-        
-        
-}
 
-    public String getfName() {
-        return fName;
-    }
-    
-    public String getId() {
-        return id;
-    }
-
-   
-    
-    
 
     @Override
     public int hashCode() {
@@ -84,10 +85,10 @@ public class Customer implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof Credit)) {
             return false;
         }
-        Customer other = (Customer) object;
+        Credit other = (Credit) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -96,7 +97,9 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "com.wesleymartins.tp2domainmodelweb.domain.Customer.Customer[ id=" + id + " ]";
+        return "com.wesleymartins.tp2domainmodelweb.domain.Customer.Credit[ id=" + id + " ]";
     }
     
+}
+        
 }

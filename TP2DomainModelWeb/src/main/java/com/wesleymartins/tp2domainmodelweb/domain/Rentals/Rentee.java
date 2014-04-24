@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.tp2domainmodelweb.domain.Customer;
+package com.wesleymartins.tp2domainmodelweb.domain.Rentals;
 
 import java.io.Serializable;
-import java.util.Locale.Builder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,22 +14,43 @@ import javax.persistence.Id;
 
 /**
  *
- * @author 212022261
+ * @author Wesley
  */
 @Entity
-public class Customer implements Serializable {
+public class Rentee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    private String fName;
+ private String name;
+    private String surname;
+    private String tel;
+    private String address;
 
-    public Customer() {
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public String getAddress() {
+        return address;
     }
     
+     private Rentee(){}
     
         
- private Customer(Builder builder){
+ private Rentee(Builder builder){
      id = builder.id;
      
  }
@@ -39,7 +59,7 @@ public class Customer implements Serializable {
         public static class Builder
         {
             private String id;
-            private String fName;
+            private String name;
             
             public Builder(String id)
             {
@@ -48,31 +68,19 @@ public class Customer implements Serializable {
                         
         
         
-        public Builder fName(String value)
+        public Builder name(String value)
         {
-            fName = value;
+            name = value;
             return this;
         }
         
-        public Customer build()
+        public Rentee build()
         {
-        return new Customer(this);
+        return new Rentee(this);
         }
-        
-        
+    
 }
 
-    public String getfName() {
-        return fName;
-    }
-    
-    public String getId() {
-        return id;
-    }
-
-   
-    
-    
 
     @Override
     public int hashCode() {
@@ -84,10 +92,10 @@ public class Customer implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof Rentee)) {
             return false;
         }
-        Customer other = (Customer) object;
+        Rentee other = (Rentee) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -96,7 +104,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "com.wesleymartins.tp2domainmodelweb.domain.Customer.Customer[ id=" + id + " ]";
+        return "com.wesleymartins.tp2domainmodelweb.domain.Rentals.Rentee[ id=" + id + " ]";
     }
     
 }

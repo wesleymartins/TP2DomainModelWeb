@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.tp2domainmodelweb.domain.Customer;
+package com.wesleymartins.tp2domainmodelweb.domain.Items;
 
 import java.io.Serializable;
-import java.util.Locale.Builder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,22 +14,33 @@ import javax.persistence.Id;
 
 /**
  *
- * @author 212022261
+ * @author Wesley
  */
 @Entity
-public class Customer implements Serializable {
+public class SecondHandGames implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    private String fName;
+private String consoleType;
+    private String name;
+    
+     public String getId() {
+        return id;
+    }
 
-    public Customer() {
+    public String getConsoleType() {
+        return consoleType;
+    }
+
+    public String getName() {
+        return name;
     }
     
+     private SecondHandGames(){}
     
         
- private Customer(Builder builder){
+ private SecondHandGames(Builder builder){
      id = builder.id;
      
  }
@@ -39,7 +49,7 @@ public class Customer implements Serializable {
         public static class Builder
         {
             private String id;
-            private String fName;
+            private String name;
             
             public Builder(String id)
             {
@@ -48,46 +58,25 @@ public class Customer implements Serializable {
                         
         
         
-        public Builder fName(String value)
+        public Builder name(String value)
         {
-            fName = value;
+            name = value;
             return this;
         }
         
-        public Customer build()
+        public SecondHandGames build()
         {
-        return new Customer(this);
+        return new SecondHandGames(this);
         }
-        
-        
+    
 }
-
-    public String getfName() {
-        return fName;
-    }
-    
-    public String getId() {
-        return id;
-    }
-
-   
-    
-    
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof SecondHandGames)) {
             return false;
         }
-        Customer other = (Customer) object;
+        SecondHandGames other = (SecondHandGames) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -96,7 +85,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "com.wesleymartins.tp2domainmodelweb.domain.Customer.Customer[ id=" + id + " ]";
+        return "com.wesleymartins.tp2domainmodelweb.domain.Items.SecondHandGames[ id=" + id + " ]";
     }
     
 }

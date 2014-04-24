@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.tp2domainmodelweb.domain.Customer;
+package com.wesleymartins.tp2domainmodelweb.domain.Items;
 
 import java.io.Serializable;
-import java.util.Locale.Builder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,22 +14,41 @@ import javax.persistence.Id;
 
 /**
  *
- * @author 212022261
+ * @author Wesley
  */
 @Entity
-public class Customer implements Serializable {
+public class XboxGame implements Serializable, Console {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    private String fName;
+ private String consoleType;
+    private String name;
+    
+    public String determineType() {
+        if(consoleType=="1")
+        consoleType = "Xbox 360";
+        else if(consoleType=="2")
+            consoleType = "XboxOne";
+        return consoleType;
+    }
 
-    public Customer() {
+    public String getId() {
+        return id;
+    }
+
+    public String getConsoleType() {
+        return consoleType;
+    }
+
+    public String getName() {
+        return name;
     }
     
+     private XboxGame(){}
     
         
- private Customer(Builder builder){
+ private XboxGame(Builder builder){
      id = builder.id;
      
  }
@@ -39,7 +57,7 @@ public class Customer implements Serializable {
         public static class Builder
         {
             private String id;
-            private String fName;
+            private String name;
             
             public Builder(String id)
             {
@@ -48,32 +66,18 @@ public class Customer implements Serializable {
                         
         
         
-        public Builder fName(String value)
+        public Builder name(String value)
         {
-            fName = value;
+            name = value;
             return this;
         }
         
-        public Customer build()
+        public XboxGame build()
         {
-        return new Customer(this);
+        return new XboxGame(this);
         }
-        
-        
+    
 }
-
-    public String getfName() {
-        return fName;
-    }
-    
-    public String getId() {
-        return id;
-    }
-
-   
-    
-    
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -84,10 +88,10 @@ public class Customer implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof XboxGame)) {
             return false;
         }
-        Customer other = (Customer) object;
+        XboxGame other = (XboxGame) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -96,7 +100,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "com.wesleymartins.tp2domainmodelweb.domain.Customer.Customer[ id=" + id + " ]";
+        return "com.wesleymartins.tp2domainmodelweb.domain.Items.XboxGame[ id=" + id + " ]";
     }
     
 }
