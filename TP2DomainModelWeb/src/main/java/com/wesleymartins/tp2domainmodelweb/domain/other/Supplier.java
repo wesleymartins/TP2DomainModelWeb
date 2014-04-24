@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.tp2domainmodelweb.domain.Customer;
+package com.wesleymartins.tp2domainmodelweb.domain.other;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -17,35 +17,30 @@ import javax.persistence.Id;
  * @author Wesley
  */
 @Entity
-public class Credit implements Serializable, Payment {
+public class Supplier implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
- private double itemPrice;
-    private String type;
-
-    public double calcAmount() {
-        
-        return itemPrice;
-    }
+private String name;
+    private String email;
 
     public String getId() {
         return id;
     }
 
-    public double getItemPrice() {
-        return itemPrice;
+    public String getName() {
+        return name;
     }
 
-    public String getType() {
-        return type;
+    public String getEmail() {
+        return email;
     }
     
-    private Credit(){}
+    private Supplier(){}
     
         
- private Credit(Builder builder){
+ private Supplier(Builder builder){
      id = builder.id;
      
  }
@@ -54,7 +49,7 @@ public class Credit implements Serializable, Payment {
         public static class Builder
         {
             private String id;
-            private String type;
+            private String name;
             
             public Builder(String id)
             {
@@ -63,16 +58,18 @@ public class Credit implements Serializable, Payment {
                         
         
         
-        public Builder type(String value)
+        public Builder name(String value)
         {
-            type = value;
+            name = value;
             return this;
         }
         
-        public Credit build()
+        public Supplier build()
         {
-        return new Credit(this);
+        return new Supplier(this);
         }
+    
+}
 
 
     @Override
@@ -85,10 +82,10 @@ public class Credit implements Serializable, Payment {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Credit)) {
+        if (!(object instanceof Supplier)) {
             return false;
         }
-        Credit other = (Credit) object;
+        Supplier other = (Supplier) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -97,9 +94,7 @@ public class Credit implements Serializable, Payment {
 
     @Override
     public String toString() {
-        return "com.wesleymartins.tp2domainmodelweb.domain.Customer.Credit[ id=" + id + " ]";
+        return "com.wesleymartins.tp2domainmodelweb.domain.other.Supplier[ id=" + id + " ]";
     }
     
-}
-        
 }

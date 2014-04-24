@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.tp2domainmodelweb.domain.Items;
+package com.wesleymartins.tp2domainmodelweb.domain.other;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -17,38 +17,36 @@ import javax.persistence.Id;
  * @author Wesley
  */
 @Entity
-public class PsGame implements Serializable, Console {
+public class TradeItem implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-  private String consoleType;
+
     private String name;
-    
-    public String determineType() {
-         if(consoleType=="1")
-        consoleType = "Playstation 3";
-        else if(consoleType=="2")
-            consoleType = "Playstation 4";
-        return consoleType;
-    }
-    
+    private double cashBack;
+    private String tradeTate;
+
     public String getId() {
         return id;
-    }
-
-    public String getConsoleType() {
-        return consoleType;
     }
 
     public String getName() {
         return name;
     }
+
+    public double getCashBack() {
+        return cashBack;
+    }
+
+    public String getTradeTate() {
+        return tradeTate;
+    }
     
-     private PsGame(){}
+    private TradeItem(){}
     
         
- private PsGame(Builder builder){
+ private TradeItem(Builder builder){
      id = builder.id;
      
  }
@@ -72,9 +70,9 @@ public class PsGame implements Serializable, Console {
             return this;
         }
         
-        public PsGame build()
+        public TradeItem build()
         {
-        return new PsGame(this);
+        return new TradeItem(this);
         }
     
 }
@@ -89,10 +87,10 @@ public class PsGame implements Serializable, Console {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PsGame)) {
+        if (!(object instanceof TradeItem)) {
             return false;
         }
-        PsGame other = (PsGame) object;
+        TradeItem other = (TradeItem) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -101,7 +99,7 @@ public class PsGame implements Serializable, Console {
 
     @Override
     public String toString() {
-        return "com.wesleymartins.tp2domainmodelweb.domain.Items.PsGame[ id=" + id + " ]";
+        return "com.wesleymartins.tp2domainmodelweb.domain.other.TradeItem[ id=" + id + " ]";
     }
     
 }

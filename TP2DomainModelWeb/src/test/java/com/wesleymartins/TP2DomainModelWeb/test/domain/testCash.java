@@ -6,7 +6,7 @@
 
 package com.wesleymartins.TP2DomainModelWeb.test.domain;
 
-import com.wesleymartins.tp2domainmodelweb.domain.customer.Customer;
+import com.wesleymartins.tp2domainmodelweb.domain.customer.Cash;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -19,52 +19,47 @@ import org.testng.annotations.Test;
  *
  * @author Wesley
  */
-public class CustomerTest {
+public class testCash {
     
-    public static Customer service;
-    public static Customer newService;
+    public static Cash service;
+    public static Cash newService;
     
-    
-    public CustomerTest() {
+    public testCash() {
     }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
-     public void CustomerCreationTest()
-     {
-         service = new Customer.Builder("00012").fName("Wesley").build();
-         Assert.assertEquals(service.getId(),"00012");
-     }
-     
-     @Test
-     public void CustomerUpdateTest()
-     {
-         newService = new Customer.Builder("00012").fName("John").build();
-         Assert.assertEquals(newService.getId(),"00012",newService.getfName());
-     }
-     
-     
-     
-     
-     
-
-    @org.testng.annotations.BeforeClass
-    public static void setUpClass() throws Exception {
+    @Test
+    public void CashCreation()
+    {
+     service = new Cash.Builder("00012").cashTendered(100.00).build();
+     Assert.assertEquals(service.getId(),"00012");
+    }
+    
+    @Test
+    public void CashUpdate() {
         
-        
+     newService = new Cash.Builder("00012").cashTendered(150.00).build();
+     Assert.assertEquals(newService.getId(),"00012");
+     Assert.assertEquals(newService.getCashTendered(),150.00);
+            
     }
 
-    @org.testng.annotations.AfterClass
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
     public static void tearDownClass() throws Exception {
     }
 
-    @org.testng.annotations.BeforeMethod
+    @BeforeMethod
     public void setUpMethod() throws Exception {
     }
 
-    @org.testng.annotations.AfterMethod
+    @AfterMethod
     public void tearDownMethod() throws Exception {
     }
 }

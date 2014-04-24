@@ -6,7 +6,7 @@
 
 package com.wesleymartins.TP2DomainModelWeb.test.domain;
 
-import com.wesleymartins.tp2domainmodelweb.domain.customer.Customer;
+import com.wesleymartins.tp2domainmodelweb.domain.staff.Cashier;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -19,41 +19,35 @@ import org.testng.annotations.Test;
  *
  * @author Wesley
  */
-public class CustomerTest {
+public class testCashier {
     
-    public static Customer service;
-    public static Customer newService;
+    public static Cashier service;
+    public static Cashier newService;
     
-    
-    public CustomerTest() {
+    public testCashier() {
     }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
      @Test
-     public void CustomerCreationTest()
-     {
-         service = new Customer.Builder("00012").fName("Wesley").build();
-         Assert.assertEquals(service.getId(),"00012");
-     }
-     
-     @Test
-     public void CustomerUpdateTest()
-     {
-         newService = new Customer.Builder("00012").fName("John").build();
-         Assert.assertEquals(newService.getId(),"00012",newService.getfName());
-     }
-     
-     
-     
-     
-     
+    public void CashierCreation() {
+        
+    service = new Cashier.Builder("00012").name("Ben").build();
+     Assert.assertEquals(service.getId(),"00012",service.getName());
+            
+    }
+    
+    @Test
+    public void CashierGameUpdate() {
+        
+    newService = new Cashier.Builder("00012").name("Benjamin").build();
+     Assert.assertEquals(newService.getId(),"00012",newService.getName());
+            
+    }
 
     @org.testng.annotations.BeforeClass
     public static void setUpClass() throws Exception {
-        
-        
     }
 
     @org.testng.annotations.AfterClass
