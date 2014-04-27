@@ -21,7 +21,7 @@ public class Accessory implements Serializable, Console {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
  private String name;
     private String type;
     
@@ -36,7 +36,7 @@ public class Accessory implements Serializable, Console {
        
     }
     
-     public String getId() {
+     public Long getId() {
         return id;
     }
 
@@ -59,12 +59,12 @@ public class Accessory implements Serializable, Console {
  
         public static class Builder
         {
-            private String id;
+            private Long id;
             private String name;
             
-            public Builder(String id)
+            public Builder(String name)
             {
-                this.id = id;
+                this.name = name;
             }
                         
         

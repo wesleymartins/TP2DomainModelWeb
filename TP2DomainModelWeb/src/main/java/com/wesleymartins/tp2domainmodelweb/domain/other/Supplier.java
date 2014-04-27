@@ -21,11 +21,11 @@ public class Supplier implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
 private String name;
     private String email;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -48,12 +48,12 @@ private String name;
  
         public static class Builder
         {
-            private String id;
+            private Long id;
             private String name;
             
-            public Builder(String id)
+            public Builder(String name)
             {
-                this.id = id;
+                this.name = name;
             }
                         
         

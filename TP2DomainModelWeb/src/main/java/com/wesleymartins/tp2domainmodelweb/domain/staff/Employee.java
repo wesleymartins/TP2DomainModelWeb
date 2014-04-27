@@ -12,7 +12,7 @@ package com.wesleymartins.tp2domainmodelweb.domain.staff;
  */
 public interface Employee {
     
-    public String getId();
+    public Long getId();
     public String getName();
     public String getSurname();
     public String getJobType();
