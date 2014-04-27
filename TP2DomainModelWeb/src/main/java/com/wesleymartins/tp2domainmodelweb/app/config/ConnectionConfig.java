@@ -26,9 +26,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author boniface
  */
 @Configuration
-@ComponentScan("com.wesleymartins")
+@ComponentScan("com.wesleymartins.tp2domainmodelweb")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.wesleymartins.tp2domainmodelweb.respository")
+@EnableJpaRepositories(basePackages = "com.wesleymartins.tp2domainmodelweb.repository")
 public class ConnectionConfig {
 
     @Bean
@@ -41,26 +41,29 @@ public class ConnectionConfig {
         return ds;
     }
 
-    @Bean
+      @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
-        LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
+        LocalContainerEntityManagerFactoryBean lef =
+                new LocalContainerEntityManagerFactoryBean();
         lef.setDataSource(dataSource);
         lef.setJpaVendorAdapter(jpaVendorAdapter);
-        lef.setPackagesToScan("com.wesleymartins.tp2domainmodelweb.app.config;");
+        lef.setPackagesToScan("com.wesleymartins.tp2domainmodelweb.domain");
         return lef;
     }
+    
 
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
-        HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
+        HibernateJpaVendorAdapter hibernateJpaVendorAdapter =
+                new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setShowSql(false);
         hibernateJpaVendorAdapter.setGenerateDdl(true);
         hibernateJpaVendorAdapter.setDatabase(Database.DERBY);
         return hibernateJpaVendorAdapter;
     }
 
-    @Bean
+   @Bean
     public PlatformTransactionManager transactionManager() {
         return new JpaTransactionManager();
     }
