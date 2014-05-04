@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.TP2DomainModelWeb.test.repositoryTest;
+package com.wesleymartins.TP2DomainModelWeb.test.repository;
 
 import com.wesleymartins.tp2domainmodelweb.app.config.ConnectionConfig;
-import com.wesleymartins.tp2domainmodelweb.domain.other.Supplier;
-import com.wesleymartins.tp2domainmodelweb.repository.SupplierRepository;
+import com.wesleymartins.tp2domainmodelweb.domain.staff.Manager;
+import com.wesleymartins.tp2domainmodelweb.repository.ManagerRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -23,52 +23,52 @@ import org.testng.annotations.Test;
  *
  * @author Wesley
  */
-public class SupplierRepositoryTest {
+public class ManagerRepositoryTest {
     public static ApplicationContext ctx;
     private Long id;
-    private SupplierRepository repo;
+    private ManagerRepository repo;
     
-    public SupplierRepositoryTest() {
+    public ManagerRepositoryTest() {
     }
 
     @Test
-     public void createSupplier() {
-         repo = ctx.getBean(SupplierRepository.class);
-         Supplier p = new Supplier.Builder("Wesley").build();
+     public void createManager() {
+         repo = ctx.getBean(ManagerRepository.class);
+         Manager p = new Manager.Builder("Wesley").build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);
      }
      
-     @Test(dependsOnMethods = "createSupplier")
-     public void readSupplier(){
-         repo = ctx.getBean(SupplierRepository.class);
-         Supplier person = repo.findOne(id);
+     @Test(dependsOnMethods = "createManager")
+     public void readManager(){
+         repo = ctx.getBean(ManagerRepository.class);
+         Manager person = repo.findOne(id);
          Assert.assertEquals(person.getName(), "Martins");
          
      }
      
-    @Test(dependsOnMethods = "readSupplier")
-     private void updateSupplier(){
-         repo = ctx.getBean(SupplierRepository.class);
-         Supplier person = repo.findOne(id);
-         Supplier updatedSupplier = new Supplier.Builder("Wesley").build();
+    @Test(dependsOnMethods = "readManager")
+     private void updateManager(){
+         repo = ctx.getBean(ManagerRepository.class);
+         Manager person = repo.findOne(id);
+         Manager updatedManager = new Manager.Builder("Wesley").build();
         
-         repo.save(updatedSupplier);
+         repo.save(updatedManager);
          
-         Assert.assertEquals(updatedSupplier.getName(), "Martins");
+         Assert.assertEquals(updatedManager.getName(), "Martins");
          
      }
      
-    @Test(dependsOnMethods = "updateSupplier")
-     private void deleteSupplier(){
-         repo = ctx.getBean(SupplierRepository.class);
-         Supplier person = repo.findOne(id);
+    @Test(dependsOnMethods = "updateManager")
+     private void deleteManager(){
+         repo = ctx.getBean(ManagerRepository.class);
+         Manager person = repo.findOne(id);
          repo.delete(person);
          
-         Supplier deletedSupplier = repo.findOne(id);
+         Manager deletedManager = repo.findOne(id);
          
-         Assert.assertNull(deletedSupplier);
+         Assert.assertNull(deletedManager);
      }
 
      

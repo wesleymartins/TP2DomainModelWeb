@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.TP2DomainModelWeb.test.repositoryTest;
+package com.wesleymartins.TP2DomainModelWeb.test.repository;
 
 import com.wesleymartins.tp2domainmodelweb.app.config.ConnectionConfig;
 import com.wesleymartins.tp2domainmodelweb.domain.items.Accessory;

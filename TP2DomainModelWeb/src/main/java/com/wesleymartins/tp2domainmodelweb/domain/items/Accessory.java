@@ -22,8 +22,10 @@ public class Accessory implements Serializable, Console {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
- private String name;
+    private String name;
     private String type;
+    
+   
     
     public String determineType() {
          if(type=="1")
@@ -47,8 +49,14 @@ public class Accessory implements Serializable, Console {
     public String getName() {
         return name;
     }
+
+    public String getType() {
+        return type;
+    }
     
-     private Accessory(){}
+    
+    
+     private Accessory(){} 
     
         
  private Accessory(Builder builder){

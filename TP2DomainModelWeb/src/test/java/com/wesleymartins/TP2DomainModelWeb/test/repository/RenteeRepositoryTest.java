@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.TP2DomainModelWeb.test.repositoryTest;
+package com.wesleymartins.TP2DomainModelWeb.test.repository;
 
 import com.wesleymartins.tp2domainmodelweb.app.config.ConnectionConfig;
-import com.wesleymartins.tp2domainmodelweb.domain.staff.Manager;
-import com.wesleymartins.tp2domainmodelweb.repository.ManagerRepository;
+import com.wesleymartins.tp2domainmodelweb.domain.rentals.Rentee;
+import com.wesleymartins.tp2domainmodelweb.repository.RenteeRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -23,52 +23,52 @@ import org.testng.annotations.Test;
  *
  * @author Wesley
  */
-public class ManagerRepositoryTest {
+public class RenteeRepositoryTest {
     public static ApplicationContext ctx;
     private Long id;
-    private ManagerRepository repo;
+    private RenteeRepository repo;
     
-    public ManagerRepositoryTest() {
+    public RenteeRepositoryTest() {
     }
 
     @Test
-     public void createManager() {
-         repo = ctx.getBean(ManagerRepository.class);
-         Manager p = new Manager.Builder("Wesley").build();
+     public void createRentee() {
+         repo = ctx.getBean(RenteeRepository.class);
+         Rentee p = new Rentee.Builder("Wesley").build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);
      }
      
-     @Test(dependsOnMethods = "createManager")
-     public void readManager(){
-         repo = ctx.getBean(ManagerRepository.class);
-         Manager person = repo.findOne(id);
+     @Test(dependsOnMethods = "createRentee")
+     public void readRentee(){
+         repo = ctx.getBean(RenteeRepository.class);
+         Rentee person = repo.findOne(id);
          Assert.assertEquals(person.getName(), "Martins");
          
      }
      
-    @Test(dependsOnMethods = "readManager")
-     private void updateManager(){
-         repo = ctx.getBean(ManagerRepository.class);
-         Manager person = repo.findOne(id);
-         Manager updatedManager = new Manager.Builder("Wesley").build();
+    @Test(dependsOnMethods = "readRentee")
+     private void updateRentee(){
+         repo = ctx.getBean(RenteeRepository.class);
+         Rentee person = repo.findOne(id);
+         Rentee updatedRentee = new Rentee.Builder("Wesley").build();
         
-         repo.save(updatedManager);
+         repo.save(updatedRentee);
          
-         Assert.assertEquals(updatedManager.getName(), "Martins");
+         Assert.assertEquals(updatedRentee.getName(), "Martins");
          
      }
      
-    @Test(dependsOnMethods = "updateManager")
-     private void deleteManager(){
-         repo = ctx.getBean(ManagerRepository.class);
-         Manager person = repo.findOne(id);
+    @Test(dependsOnMethods = "updateRentee")
+     private void deleteRentee(){
+         repo = ctx.getBean(RenteeRepository.class);
+         Rentee person = repo.findOne(id);
          repo.delete(person);
          
-         Manager deletedManager = repo.findOne(id);
+         Rentee deletedRentee = repo.findOne(id);
          
-         Assert.assertNull(deletedManager);
+         Assert.assertNull(deletedRentee);
      }
 
      

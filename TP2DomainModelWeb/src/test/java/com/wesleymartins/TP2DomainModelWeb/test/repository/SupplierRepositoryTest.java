@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package com.wesleymartins.TP2DomainModelWeb.test.repositoryTest;
+package com.wesleymartins.TP2DomainModelWeb.test.repository;
 
-import com.wesleymartins.tp2domainmodelweb.domain.customer.Customer;
-import com.wesleymartins.tp2domainmodelweb.repository.CustomerRepository;
 import com.wesleymartins.tp2domainmodelweb.app.config.ConnectionConfig;
+import com.wesleymartins.tp2domainmodelweb.domain.other.Supplier;
+import com.wesleymartins.tp2domainmodelweb.repository.SupplierRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -19,58 +19,56 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
-
 /**
  *
  * @author Wesley
  */
-public class CustomerRepositoryTest {
+public class SupplierRepositoryTest {
     public static ApplicationContext ctx;
     private Long id;
-    private CustomerRepository repo;
+    private SupplierRepository repo;
     
-    public CustomerRepositoryTest() {
+    public SupplierRepositoryTest() {
     }
 
     @Test
-     public void createCustomer() {
-         repo = ctx.getBean(CustomerRepository.class);
-         Customer p = new Customer.Builder("Wesley").build();
+     public void createSupplier() {
+         repo = ctx.getBean(SupplierRepository.class);
+         Supplier p = new Supplier.Builder("Wesley").build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);
      }
      
-     @Test(dependsOnMethods = "createCustomer")
-     public void readCustomer(){
-         repo = ctx.getBean(CustomerRepository.class);
-         Customer person = repo.findOne(id);
-         Assert.assertEquals(person.getfName(), "Martins");
+     @Test(dependsOnMethods = "createSupplier")
+     public void readSupplier(){
+         repo = ctx.getBean(SupplierRepository.class);
+         Supplier person = repo.findOne(id);
+         Assert.assertEquals(person.getName(), "Martins");
          
      }
      
-    @Test(dependsOnMethods = "readCustomer")
-     private void updateCustomer(){
-         repo = ctx.getBean(CustomerRepository.class);
-         Customer person = repo.findOne(id);
-         Customer updatedCustomer = new Customer.Builder("Wesley").build();
+    @Test(dependsOnMethods = "readSupplier")
+     private void updateSupplier(){
+         repo = ctx.getBean(SupplierRepository.class);
+         Supplier person = repo.findOne(id);
+         Supplier updatedSupplier = new Supplier.Builder("Wesley").build();
         
-         repo.save(updatedCustomer);
+         repo.save(updatedSupplier);
          
-         Assert.assertEquals(updatedCustomer.getfName(), "Martins");
+         Assert.assertEquals(updatedSupplier.getName(), "Martins");
          
      }
      
-    @Test(dependsOnMethods = "updateCustomer")
-     private void deleteCustomer(){
-         repo = ctx.getBean(CustomerRepository.class);
-         Customer person = repo.findOne(id);
+    @Test(dependsOnMethods = "updateSupplier")
+     private void deleteSupplier(){
+         repo = ctx.getBean(SupplierRepository.class);
+         Supplier person = repo.findOne(id);
          repo.delete(person);
          
-         Customer deletedCustomer = repo.findOne(id);
+         Supplier deletedSupplier = repo.findOne(id);
          
-         Assert.assertNull(deletedCustomer);
+         Assert.assertNull(deletedSupplier);
      }
 
      

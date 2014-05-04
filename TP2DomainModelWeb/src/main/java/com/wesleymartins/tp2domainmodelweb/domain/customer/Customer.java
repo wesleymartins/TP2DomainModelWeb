@@ -25,7 +25,9 @@ public class Customer implements Serializable {
     private Long id;
     private String fName;
     private String surname;
+    private int age;
 
+    
     public Customer() {
     }
     
@@ -71,6 +73,15 @@ public class Customer implements Serializable {
     public Long getId() {
         return id;
     }
+    
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
 
    
     
