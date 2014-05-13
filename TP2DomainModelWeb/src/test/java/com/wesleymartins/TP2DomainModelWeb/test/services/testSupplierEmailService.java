@@ -39,7 +39,7 @@ public class testSupplierEmailService {
         customerRepository = ctx.getBean(SupplierRepository.class);
         customerEmailService = ctx.getBean(SupplierEmailService.class);
         
-        Supplier c1 = new Supplier.Builder("BT Games")           
+        Supplier c1 = new Supplier.Builder("BT Games")        
                 .build();
         Supplier c2 = new Supplier.Builder("Musica")
                 .build();
@@ -50,9 +50,9 @@ public class testSupplierEmailService {
         customerRepository.save(c2);
         customerRepository.save(c3);
 
-        List<Supplier> people = customerEmailService.getSupplierEmail("www.btgames.co.za");
+        List<Supplier> people = customerEmailService.getSupplierEmail("BT Games");
 
-        Assert.assertEquals(people.size(), 2);
+        Assert.assertEquals(people.size(), 1);
 
     }
 

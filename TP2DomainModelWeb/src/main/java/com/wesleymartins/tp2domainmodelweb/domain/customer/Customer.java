@@ -36,6 +36,8 @@ public class Customer implements Serializable {
  private Customer(Builder builder){
      id = builder.id;
      fName = builder.fName;
+     surname = builder.surname;
+     age = builder.age;
      
  }
  
@@ -44,11 +46,27 @@ public class Customer implements Serializable {
         {
             private Long id;
             private String fName;
+            private String surname;
+            private int age;
             
             public Builder(String firstName)
             {
                 this.fName = firstName;
             }
+            
+             public Builder surname(String sur)
+            {
+                surname = sur;
+                return this;
+            }
+             
+              public Builder age(int a)
+            {
+                age = a;
+                return this;
+            }
+              
+              
                         
         
         

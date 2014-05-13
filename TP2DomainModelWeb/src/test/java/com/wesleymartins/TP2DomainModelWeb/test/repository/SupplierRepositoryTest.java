@@ -44,7 +44,7 @@ public class SupplierRepositoryTest {
      public void readSupplier(){
          repo = ctx.getBean(SupplierRepository.class);
          Supplier person = repo.findOne(id);
-         Assert.assertEquals(person.getName(), "Martins");
+         Assert.assertEquals(person.getName(), "Wesley");
          
      }
      
@@ -56,7 +56,7 @@ public class SupplierRepositoryTest {
         
          repo.save(updatedSupplier);
          
-         Assert.assertEquals(updatedSupplier.getName(), "Martins");
+         Assert.assertEquals(updatedSupplier.getName(), "Wesley");
          
      }
      

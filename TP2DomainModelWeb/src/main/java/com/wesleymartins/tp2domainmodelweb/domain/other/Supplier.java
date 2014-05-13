@@ -42,6 +42,7 @@ private String name;
         
  private Supplier(Builder builder){
      id = builder.id;
+     name = builder.name;
      
  }
  

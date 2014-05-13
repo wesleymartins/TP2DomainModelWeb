@@ -44,7 +44,7 @@ public class RenteeRepositoryTest {
      public void readRentee(){
          repo = ctx.getBean(RenteeRepository.class);
          Rentee person = repo.findOne(id);
-         Assert.assertEquals(person.getName(), "Martins");
+         Assert.assertEquals(person.getName(), "Wesley");
          
      }
      
@@ -56,7 +56,7 @@ public class RenteeRepositoryTest {
         
          repo.save(updatedRentee);
          
-         Assert.assertEquals(updatedRentee.getName(), "Martins");
+         Assert.assertEquals(updatedRentee.getName(), "Wesley");
          
      }
      

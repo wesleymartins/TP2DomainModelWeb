@@ -30,7 +30,7 @@ public class AccessoryTypeServiceImpl implements AccessoryTypeService{
         List<Accessory> allAccessorys =accessoryRepository.findAll();
 
         for (Accessory person : allAccessorys) {
-            if (person.getType() == i) {
+            if (i.equals(person.getType())) {
                 cust.add(person);
             }
         }

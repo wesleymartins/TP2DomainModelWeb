@@ -36,7 +36,7 @@ public class CustomerRepositoryTest {
     @Test
      public void createCustomer() {
          repo = ctx.getBean(CustomerRepository.class);
-         Customer p = new Customer.Builder("Wesley").build();
+         Customer p = new Customer.Builder("Wesley").age(21).surname("Martins").build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);
@@ -46,7 +46,7 @@ public class CustomerRepositoryTest {
      public void readCustomer(){
          repo = ctx.getBean(CustomerRepository.class);
          Customer person = repo.findOne(id);
-         Assert.assertEquals(person.getfName(), "Martins");
+         Assert.assertEquals(person.getfName(), "Wesley");
          
      }
      
@@ -54,11 +54,11 @@ public class CustomerRepositoryTest {
      private void updateCustomer(){
          repo = ctx.getBean(CustomerRepository.class);
          Customer person = repo.findOne(id);
-         Customer updatedCustomer = new Customer.Builder("Wesley").build();
+         Customer updatedCustomer =  new Customer.Builder("Wesley").age(21).surname("Martins").build();
         
          repo.save(updatedCustomer);
          
-         Assert.assertEquals(updatedCustomer.getfName(), "Martins");
+         Assert.assertEquals(updatedCustomer.getfName(), "Wesley");
          
      }
      

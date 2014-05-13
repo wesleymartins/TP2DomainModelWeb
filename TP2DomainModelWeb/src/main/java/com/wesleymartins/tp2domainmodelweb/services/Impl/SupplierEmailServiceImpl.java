@@ -30,7 +30,7 @@ public class SupplierEmailServiceImpl implements SupplierEmailService{
         List<Supplier> allSuppliers =accessoryRepository.findAll();
 
         for (Supplier person : allSuppliers) {
-            if (person.getEmail() == i) {
+            if (i.equals(person.getEmail())) {
                 supplier.add(person);
             }
         }

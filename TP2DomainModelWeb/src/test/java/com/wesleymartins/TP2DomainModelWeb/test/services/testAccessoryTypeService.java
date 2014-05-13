@@ -41,7 +41,7 @@ public class testAccessoryTypeService {
         
         Accessory c1 = new Accessory.Builder("RazerV1204")           
                 .build();
-        Accessory c2 = new Accessory.Builder("Alienware223")
+        Accessory c2 = new Accessory.Builder("Headset")
                 .build();
         Accessory c3 = new Accessory.Builder("Geforce Mouse")
                 .build();
@@ -52,7 +52,7 @@ public class testAccessoryTypeService {
 
         List<Accessory> people = customerTypeService.getAccessoryType("Headset");
 
-        Assert.assertEquals(people.size(), 2);
+        Assert.assertEquals(people.size(), 1);
 
     }
 
@@ -71,7 +71,7 @@ public class testAccessoryTypeService {
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-       customerRepository = ctx.getBean(AccessoryRepository.class);
-       customerRepository.deleteAll();
+//       customerRepository = ctx.getBean(AccessoryRepository.class);
+//       customerRepository.deleteAll();
     }
 }
