@@ -34,7 +34,7 @@ public class AccessoryRepositoryTest {
     @Test
      public void createAccessory() {
          repo = ctx.getBean(AccessoryRepository.class);
-         Accessory p = new Accessory.Builder("Controller").build();
+         Accessory p = new Accessory.Builder("DualShock4").build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);
@@ -52,7 +52,7 @@ public class AccessoryRepositoryTest {
      private void updateAccessory(){
          repo = ctx.getBean(AccessoryRepository.class);
          Accessory person = repo.findOne(id);
-         Accessory updatedAccessory = new Accessory.Builder("Contoller").build();
+         Accessory updatedAccessory = new Accessory.Builder("DualShock4").build();
         
          repo.save(updatedAccessory);
          

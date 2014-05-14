@@ -52,7 +52,7 @@ public class Rentee implements Serializable {
         
  private Rentee(Builder builder){
      id = builder.id;
-     
+     name = builder.name;
  }
  
  

@@ -22,7 +22,7 @@ public class Manager implements Serializable, Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
- private String name;
+    private String name;
     private String surname;
     private double salary;
     private final String jobType = "Manager";
@@ -52,6 +52,7 @@ public class Manager implements Serializable, Employee {
         
  private Manager(Builder builder){
      id = builder.id;
+     name = builder.name;
      
  }
  
@@ -61,7 +62,7 @@ public class Manager implements Serializable, Employee {
             private Long id;
             private String name;
             
-            public Builder(String value)
+            public Builder(String name)
             {
                 this.name = name;
             }

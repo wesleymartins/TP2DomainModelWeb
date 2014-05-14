@@ -70,9 +70,9 @@ public class Customer implements Serializable {
                         
         
         
-        public Builder id(Long value)
+        public Builder fName(String value)
         {
-            id = value;
+            fName = value;
             return this;
         }
         

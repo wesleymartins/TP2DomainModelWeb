@@ -44,7 +44,7 @@ public class ManagerRepositoryTest {
      public void readManager(){
          repo = ctx.getBean(ManagerRepository.class);
          Manager person = repo.findOne(id);
-         Assert.assertEquals(person.getName(), "Martins");
+         Assert.assertEquals(person.getName(), "Wesley");
          
      }
      
@@ -56,7 +56,7 @@ public class ManagerRepositoryTest {
         
          repo.save(updatedManager);
          
-         Assert.assertEquals(updatedManager.getName(), "Martins");
+         Assert.assertEquals(updatedManager.getName(), "Wesley");
          
      }
      

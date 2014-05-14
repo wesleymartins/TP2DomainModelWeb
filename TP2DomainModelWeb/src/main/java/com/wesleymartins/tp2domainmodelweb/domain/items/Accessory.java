@@ -61,6 +61,7 @@ public class Accessory implements Serializable, Console {
         
  private Accessory(Builder builder){
      id = builder.id;
+     name = builder.name;
      
  }
  

@@ -16,11 +16,11 @@
 
   <dependencies>
         <!-- <dependency>
-<groupId>javax</groupId>
-<artifactId>javaee-web-api</artifactId>
-<version>7.0</version>
-<scope>provided</scope>
-</dependency>-->
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>-->
         
         <dependency>
             <groupId>org.testng</groupId>
@@ -96,6 +96,7 @@
             <version>1.7.1.RELEASE</version>
         </dependency>
 
+
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
@@ -132,6 +133,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 
     <build>
         <plugins>
