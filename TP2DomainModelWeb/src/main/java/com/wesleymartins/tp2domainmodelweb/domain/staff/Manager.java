@@ -53,7 +53,7 @@ public class Manager implements Serializable, Employee {
  private Manager(Builder builder){
      id = builder.id;
      name = builder.name;
-     
+     salary = builder.salary;
  }
  
  
@@ -61,11 +61,14 @@ public class Manager implements Serializable, Employee {
         {
             private Long id;
             private String name;
+            private double salary;
             
             public Builder(String name)
             {
                 this.name = name;
             }
+            
+           
                         
         
         
@@ -74,6 +77,16 @@ public class Manager implements Serializable, Employee {
             name = value;
             return this;
         }
+        
+         public Builder sal(double value)
+        {
+            salary = value;
+            return this;
+        }
+        
+        
+        
+       
         
         public Manager build()
         {

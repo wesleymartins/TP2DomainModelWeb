@@ -39,18 +39,18 @@ public class testSupplierEmailService {
         customerRepository = ctx.getBean(SupplierRepository.class);
         customerEmailService = ctx.getBean(SupplierEmailService.class);
         
-        Supplier c1 = new Supplier.Builder("BT Games")        
+        Supplier c1 = new Supplier.Builder("BT Games") .e("www.bt-game.com")       
                 .build();
-        Supplier c2 = new Supplier.Builder("Musica")
+        Supplier c2 = new Supplier.Builder("Musica").e("www.google.com")
                 .build();
-        Supplier c3 = new Supplier.Builder("Ster Kinekor")
+        Supplier c3 = new Supplier.Builder("Ster Kinekor").e("www.twitter.com")
                 .build();
 
         customerRepository.save(c1);
         customerRepository.save(c2);
         customerRepository.save(c3);
 
-        List<Supplier> people = customerEmailService.getSupplierEmail("BT Games");
+        List<Supplier> people = customerEmailService.getSupplierEmail("www.bt-game.com");
 
         Assert.assertEquals(people.size(), 1);
 

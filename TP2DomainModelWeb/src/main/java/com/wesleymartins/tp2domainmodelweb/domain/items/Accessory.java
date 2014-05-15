@@ -62,6 +62,7 @@ public class Accessory implements Serializable, Console {
  private Accessory(Builder builder){
      id = builder.id;
      name = builder.name;
+     type = builder.type;
      
  }
  
@@ -69,21 +70,20 @@ public class Accessory implements Serializable, Console {
         public static class Builder
         {
             private Long id;
+            private String type;
             private String name;
             
             public Builder(String name)
             {
                 this.name = name;
             }
-                        
+            
+            public Builder type(String value){
+                type = value;
+                return this;
+            }
         
-        
-        public Builder name(String value)
-        {
-            name = value;
-            return this;
-        }
-        
+         
         public Accessory build()
         {
         return new Accessory(this);

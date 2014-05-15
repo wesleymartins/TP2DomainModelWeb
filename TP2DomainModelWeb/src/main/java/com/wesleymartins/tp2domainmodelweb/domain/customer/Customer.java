@@ -54,6 +54,11 @@ public class Customer implements Serializable {
                 this.fName = firstName;
             }
             
+             public Builder(Long ID)
+            {
+                this.id = ID;
+            }
+            
              public Builder surname(String sur)
             {
                 surname = sur;
@@ -64,10 +69,7 @@ public class Customer implements Serializable {
             {
                 age = a;
                 return this;
-            }
-              
-              
-                        
+            }       
         
         
         public Builder fName(String value)

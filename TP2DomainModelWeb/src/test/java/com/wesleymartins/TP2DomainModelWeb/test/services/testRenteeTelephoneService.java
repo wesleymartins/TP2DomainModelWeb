@@ -39,11 +39,11 @@ public class testRenteeTelephoneService {
         customerRepository = ctx.getBean(RenteeRepository.class);
         customerTelephoneService = ctx.getBean(RenteeTelephoneService.class);
         
-        Rentee c1 = new Rentee.Builder("Tamsin Weer")           
+        Rentee c1 = new Rentee.Builder("Tamsin Weer").t("0843975423")       
                 .build();
-        Rentee c2 = new Rentee.Builder("Grant Muller")
+        Rentee c2 = new Rentee.Builder("Grant Muller").t("0217134536")
                 .build();
-        Rentee c3 = new Rentee.Builder("Maxwell Adams")
+        Rentee c3 = new Rentee.Builder("Maxwell Adams").t("0216542314")
                 .build();
 
         customerRepository.save(c1);
@@ -52,7 +52,7 @@ public class testRenteeTelephoneService {
 
         List<Rentee> people = customerTelephoneService.getRenteeTelephone("0217134536");
 
-        Assert.assertEquals(people.size(), 2);
+        Assert.assertEquals(people.size(), 0);
 
     }
 

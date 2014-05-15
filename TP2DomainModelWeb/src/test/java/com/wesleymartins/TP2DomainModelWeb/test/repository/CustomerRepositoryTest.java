@@ -36,7 +36,7 @@ public class CustomerRepositoryTest {
     @Test
      public void createCustomer() {
          repo = ctx.getBean(CustomerRepository.class);
-         Customer p = new Customer.Builder("Wesley").age(21).surname("Martins").build();
+         Customer p = new Customer.Builder("Wesley").surname("Martins").build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);

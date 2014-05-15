@@ -49,11 +49,11 @@ public class testCustomerAgeService {
         customerRepository = ctx.getBean(CustomerRepository.class);
         customerAgeService = ctx.getBean(CustomerAgeService.class);
         
-        Customer c1 = new Customer.Builder("Wesley")           
+        Customer c1 = new Customer.Builder("Wesley").age(21)          
                 .build();
-        Customer c2 = new Customer.Builder("Martins")
+        Customer c2 = new Customer.Builder("Martins").age(18)
                 .build();
-        Customer c3 = new Customer.Builder("Sarah")
+        Customer c3 = new Customer.Builder("Sarah").age(25)
                 .build();
 
         customerRepository.save(c1);
@@ -62,7 +62,7 @@ public class testCustomerAgeService {
 
         List<Customer> people = customerAgeService.getAgeAbove(21);
 
-        Assert.assertEquals(people.size(), 2);
+        Assert.assertEquals(people.size(), 1);
 
     }
 

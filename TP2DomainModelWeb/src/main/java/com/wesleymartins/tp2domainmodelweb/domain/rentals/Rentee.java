@@ -53,6 +53,7 @@ public class Rentee implements Serializable {
  private Rentee(Builder builder){
      id = builder.id;
      name = builder.name;
+     tel = builder.tel;
  }
  
  
@@ -60,6 +61,7 @@ public class Rentee implements Serializable {
         {
             private Long id;
             private String name;
+            private String tel;
             
             public Builder(String name)
             {
@@ -71,6 +73,12 @@ public class Rentee implements Serializable {
         public Builder name(String value)
         {
             name = value;
+            return this;
+        }
+        
+        public Builder t(String value)
+        {
+            tel = value;
             return this;
         }
         

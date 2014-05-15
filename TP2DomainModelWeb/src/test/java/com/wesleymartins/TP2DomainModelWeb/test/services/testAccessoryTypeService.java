@@ -39,11 +39,11 @@ public class testAccessoryTypeService {
         customerRepository = ctx.getBean(AccessoryRepository.class);
         customerTypeService = ctx.getBean(AccessoryTypeService.class);
         
-        Accessory c1 = new Accessory.Builder("RazerV1204")           
+        Accessory c1 = new Accessory.Builder("RazerV1204").type("Headset")
                 .build();
-        Accessory c2 = new Accessory.Builder("Headset")
+        Accessory c2 = new Accessory.Builder("RazorV34").type("Microphone")
                 .build();
-        Accessory c3 = new Accessory.Builder("Geforce Mouse")
+        Accessory c3 = new Accessory.Builder("Geforce Mouse").type("Mouse")
                 .build();
 
         customerRepository.save(c1);
@@ -71,7 +71,7 @@ public class testAccessoryTypeService {
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-//       customerRepository = ctx.getBean(AccessoryRepository.class);
-//       customerRepository.deleteAll();
+       customerRepository = ctx.getBean(AccessoryRepository.class);
+       customerRepository.deleteAll();
     }
 }

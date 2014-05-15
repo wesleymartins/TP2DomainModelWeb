@@ -39,11 +39,11 @@ public class testManagerSalaryService {
         customerRepository = ctx.getBean(ManagerRepository.class);
         customerSalaryService = ctx.getBean(ManagerSalaryService.class);
         
-        Manager c1 = new Manager.Builder("Gerald")           
+        Manager c1 = new Manager.Builder("Gerald").sal(2000.00)         
                 .build();
-        Manager c2 = new Manager.Builder("Wesley")
+        Manager c2 = new Manager.Builder("Wesley").sal(1000.00)
                 .build();
-        Manager c3 = new Manager.Builder("Brandon")
+        Manager c3 = new Manager.Builder("Brandon").sal(5000.00)
                 .build();
 
         customerRepository.save(c1);
@@ -52,7 +52,7 @@ public class testManagerSalaryService {
 
         List<Manager> people = customerSalaryService.getManagerSalary(2000.00);
 
-        Assert.assertEquals(people.size(), 2);
+        Assert.assertEquals(people.size(), 1);
 
     }
 

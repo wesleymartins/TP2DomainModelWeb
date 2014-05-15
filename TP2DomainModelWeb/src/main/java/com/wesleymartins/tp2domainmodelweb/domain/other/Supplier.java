@@ -43,7 +43,7 @@ public class Supplier implements Serializable {
  private Supplier(Builder builder){
      id = builder.id;
      name = builder.name;
-     
+     email = builder.email;
  }
  
  
@@ -51,6 +51,7 @@ public class Supplier implements Serializable {
         {
             private Long id;
             private String name;
+            private String email;
             
             public Builder(String name)
             {
@@ -62,6 +63,12 @@ public class Supplier implements Serializable {
         public Builder name(String value)
         {
             name = value;
+            return this;
+        }
+        
+        public Builder e(String value)
+        {
+            email = value;
             return this;
         }
         
