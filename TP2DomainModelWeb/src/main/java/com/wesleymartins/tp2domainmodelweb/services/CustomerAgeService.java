@@ -13,7 +13,13 @@ import java.util.List;
  *
  * @author Wesley
  */
-public interface CustomerAgeService {
+public interface CustomerAgeService extends Services <Customer, Long>{
     
     public List<Customer> getAgeAbove(int i);
+
+    
+
+    public List<Customer> findAll();
+
+    
 }

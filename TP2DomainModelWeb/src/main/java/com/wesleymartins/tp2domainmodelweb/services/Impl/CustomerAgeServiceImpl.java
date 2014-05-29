@@ -28,6 +28,34 @@ public class CustomerAgeServiceImpl implements CustomerAgeService{
     @Autowired
     private CustomerRepository customerRepository;
     
+    
+    public Customer find(Long id) {
+        return customerRepository.findOne(id);
+    }
+
+    
+       public Customer persist(Customer entity) {
+        return customerRepository.save(entity);
+    }
+
+   
+    public Customer merge(Customer entity) {
+        if(entity.getId() != null){
+            return customerRepository.save(entity);
+        }
+        return null;
+    }
+
+    
+    public void remove(Customer entity) {
+        customerRepository.delete(entity);
+    }
+
+ 
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
+    }
+    
     @Override
     public List<Customer> getAgeAbove(int i) {
        List<Customer> cust = new ArrayList<>();
@@ -42,5 +70,11 @@ public class CustomerAgeServiceImpl implements CustomerAgeService{
     
         
     }
+
+   
+    
+
+   
+   
     
 }
